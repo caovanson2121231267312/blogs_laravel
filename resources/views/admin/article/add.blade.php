@@ -35,7 +35,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Ảnh:</label>
                                             <input type="file" class="form-control" name="image" accept="image/*"
-                                                id="exampleInputEmail1">
+                                                id="exampleInputEmail1" required>
                                             <small class="text-danger"> {{ $errors->first('image') ?? '' }} </small>
                                         </div>
                                         <div class="form-group">
@@ -47,7 +47,7 @@
                                             </select>
                                             <small class="text-danger"> {{ $errors->first('category') ?? '' }} </small>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group select-select2">
                                             <label for="exampleInputEmail1">Tags:</label>
                                             <select name="tag[]" class="select2-danger form-control select2 select2-ajax-tags" multiple id="tag_search" data-url="{{route("tags.search")}}">
                                                 {{-- @foreach ($keywords as $value)

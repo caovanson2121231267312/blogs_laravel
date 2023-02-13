@@ -50,7 +50,7 @@
                                             </select>
                                             <small class="text-danger"> {{ $errors->first('category') ?? '' }} </small>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group select-select2">
                                             <label for="exampleInputEmail1">Tags:</label>
                                             <select name="tag[]" class="select2-danger form-control select2" multiple
                                                 id="tag_search" data-url="{{ route('tags.search') }}">

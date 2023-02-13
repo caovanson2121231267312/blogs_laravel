@@ -20,6 +20,7 @@ class Article extends Model
         'image',
         'user_id',
         'category_id',
+        'checked',
     ];
 
     protected $mappingProperties = array(

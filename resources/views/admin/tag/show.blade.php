@@ -8,7 +8,7 @@
 
 @section('body')
     <div class="content-wrapper">
-        <x-breadcrumb name="Show Tags {{ $data->name }}" />
+        <x-breadcrumb name="Show Tags" />
 
         <section class="content">
             <div class="container-fluid">

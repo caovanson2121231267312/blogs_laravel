@@ -1,7 +1,7 @@
 <div class="card-body">
     <div class="flex flex-between">
         <div>
-            <a href="{{ route('users.create') }}" class="btn btn-outline-primary" type="button"
+            <a href="#" class="btn btn-outline-primary" type="button"
                 data-tippy-content="{{ __('messages.users.add') }}">
                 <i class="fas fa-plus"></i>
             </a>
@@ -46,22 +46,9 @@
             </form>
         </div>
     </div>
-    @if (session()->has('alert_primary'))
-        <div class="mt-3 alert alert-primary" role="alert">
-            {{ session('alert_primary') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-    @if (session()->has('alert_danger'))
-        <div class="mt-3 alert alert-danger" role="alert">
-            {{ session('alert_danger') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
+
+    <x-alert />
+    
     <div class="table-responsive">
         <table class="mt-3 mb-3 table table-hover table-border">
             <thead>

@@ -3,17 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use Exception;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
-use Hash;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -35,6 +30,11 @@ class UserController extends Controller
         return view("admin.user.index");
     }
 
+    public function create()
+    {
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -46,7 +46,9 @@ class UserController extends Controller
             $data = User::findOrFail($id)->load(['roles', 'articles']);
             $roles = Role::all();
         } catch (\Exception $e) {
-            return redirect()->route('users.index')->with('error', $e->getMessage());
+
+            session()->flash('error', $e->getMessage());
+            return redirect()->route('users.index');
         }
 
         return view('admin.user.show', compact('data', 'roles'));
@@ -64,7 +66,9 @@ class UserController extends Controller
             $data = User::findOrFail($id)->load(['roles', 'articles']);
             $roles = Role::all();
         } catch (\Exception $e) {
-            return redirect()->route('users.index')->with('error', $e->getMessage());
+
+            session()->flash('error', $e->getMessage());
+            return redirect()->route('users.index');
         }
 
         return view('admin.user.edit', compact('data', 'roles'));
@@ -107,13 +111,15 @@ class UserController extends Controller
             $user->syncRoles($request->roles);
 
             DB::commit();
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             DB::rollBack();
 
-            return redirect()->back()->with('error', $th->getMessage());
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
 
-        return redirect()->back()->with('success', __('update_success'));
+        session()->flash('success', __('update_success'));
+        return redirect()->back();
     }
 
 

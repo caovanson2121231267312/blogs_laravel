@@ -56,13 +56,14 @@ class TagController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route("tags.index")
-                ->with('message', 'Đã tạo thành công ' . $tag->name);
+
+            session()->flash("message", 'Đã tạo thành công ' . $tag->name);
+            return redirect()->route("tags.index");
         } catch (Exception $e) {
             DB::rollBack();
 
-            return redirect()->back()
-                ->with(['error' => $e->getMessage()]);
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -80,7 +81,8 @@ class TagController extends Controller
             return view("admin.tag.show", ["data" => $data]);
         } catch (ModelNotFoundException $e) {
 
-            return redirect()->back()->with(["error" => $e->getMessage()]);
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -98,7 +100,8 @@ class TagController extends Controller
             return view("admin.tag.edit", ["data" => $data]);
         } catch (ModelNotFoundException $e) {
 
-            return redirect()->back()->with(["error" => $e->getMessage()]);
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -120,11 +123,14 @@ class TagController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route("tags.index")->with(["message" => "Đã sửa thành công"]);
-        } catch (ModelNotFoundException $e) {
 
+            session()->flash("message", "Đã sửa thành công");
+            return redirect()->route("tags.index");
+        } catch (ModelNotFoundException $e) {
             DB::rollBack();
-            return redirect()->back()->with(["error" => $e->getMessage()]);
+
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -151,6 +157,7 @@ class TagController extends Controller
             ], 500);
         }
 
-        return redirect()->route('tags.index')->with("delete-success", "Đã xóa " . $data->name . " thành công");
+        session()->flash("delete-success", "Đã xóa " . $data->name . " thành công");
+        return redirect()->route('tags.index');
     }
 }

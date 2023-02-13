@@ -24,6 +24,23 @@
                                 <table class="table" style="width: 950px;">
                                     <tbody>
                                         <tr>
+                                            <td colspan="2" class="text-center">
+                                                <a class="btn btn-warning" href="{{ route('articles.edit', $data->id) }}"
+                                                    data-tippy-content="{{ __('messages.edit', ['name' => $data->name]) }}">
+                                                    <i class="fas fa-edit"></i> Edit
+                                                </a>
+                                                <form action="{{ route('articles.destroy', $data->id) }}"
+                                                    data-tippy-content="{{ __('messages.delete', ['name' => $data->name]) }}"
+                                                    class="d-inline delete" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="fas fa-trash-alt"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td>Id: </td>
                                             <td>{{ $data->id }}</td>
                                         </tr>
@@ -87,27 +104,10 @@
                                             <td>Updated_at: </td>
                                             <td>{{ date_format($data->updated_at, 'H:i:s d/m/Y') }}</td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="2" class="text-center">
-                                                <a class="btn btn-warning" href="{{ route('articles.edit', $data->id) }}"
-                                                    data-tippy-content="{{ __('messages.edit', ['name' => $data->name]) }}">
-                                                    <i class="fas fa-edit"></i> Edit
-                                                </a>
-                                                <form action="{{ route('articles.destroy', $data->id) }}"
-                                                    data-tippy-content="{{ __('messages.delete', ['name' => $data->name]) }}"
-                                                    class="d-inline delete" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="fas fa-trash-alt"></i> Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
 
-                                <div class="col-10">
+                                <div class="col-10 content">
                                     <div class="w-100">
                                         {!! $data->content !!}
                                     </div>

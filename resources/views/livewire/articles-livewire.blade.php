@@ -32,11 +32,8 @@
         <div class="d-flex">
             <span wire:ignore>
                 <select class="form-control me-2 select2-ajax-tags" name="tag" wire:model="selectedTag"
-                    id="tag_search" data-url="{{ route('tags.search') }}"  wire:click="$emit('postAdded')">
+                    id="tag_search" data-url="{{ route('tags.search') }}" wire:click="$emit('postAdded')">
                     <option value="">All (tags)</option>
-                    {{-- @foreach (App\Models\Tag::take(100)->get() as $value)
-                    <option value="{{ $value->id }}">{{ $value->name }}</option>
-                @endforeach --}}
                 </select>
             </span>
             <select class="form-control me-2 ms-2" wire:model="selectedCategory">
@@ -55,22 +52,9 @@
             </form>
         </div>
     </div>
-    @if (session()->has('alert_primary'))
-        <div class="mt-3 alert alert-primary" role="alert">
-            {{ session('alert_primary') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-    @if (session()->has('alert_danger'))
-        <div class="mt-3 alert alert-danger" role="alert">
-            {{ session('alert_danger') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
+
+    <x-alert />
+
     <div class="table-responsive">
         <table class="mt-3 mb-3 table table-hover table-border">
             <thead>
@@ -83,6 +67,7 @@
                     <x-th value="User" data="users.name" :sortBy="$sortBy" :sortAscending="$sortAscending" />
                     <x-th value="Category" data="categories.name" :sortBy="$sortBy" :sortAscending="$sortAscending" />
                     <x-th value="View" data="{{ $table }}view" :sortBy="$sortBy" :sortAscending="$sortAscending" />
+                    <x-th value="Check" data="{{ $table }}checked" :sortBy="$sortBy" :sortAscending="$sortAscending" />
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -120,6 +105,14 @@
                                 </a>
                             </td>
                             <td>{{ $value->view }}</td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" wire:click.300ms="isChecked({{ $value->id }})"
+                                        class="custom-control-input" id="customSwitch{{ $value->id }}"
+                                        @if ($value->checked) {{ 'checked' }} @endif>
+                                    <label class="custom-control-label" for="customSwitch{{ $value->id }}"></label>
+                                </div>
+                            </td>
                             <td class="text-center">
                                 <div>
                                     @can('role-create')

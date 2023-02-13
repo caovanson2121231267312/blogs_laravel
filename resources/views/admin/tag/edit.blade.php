@@ -9,7 +9,7 @@
 @section('body')
 
 <div class="content-wrapper">
-    <x-breadcrumb name="Tags" />
+    <x-breadcrumb name="Edit tags" />
 
     <section class="content">
         <div class="container-fluid">

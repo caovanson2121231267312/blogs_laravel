@@ -27,6 +27,21 @@ class ArticlesLivewire extends Component
 
     protected $listeners = ['postAdded' => 'selectedTag'];
 
+    public function isChecked($id)
+    {
+        $data = Article::find($id);
+        if ($data->checked) {
+            $bool = 0;
+        } else {
+            $bool = 1;
+        }
+        $data->update([
+            "checked" => $bool,
+        ]);
+
+        session()->flash('alert_success', __("messages.checked_success"));
+    }
+
 
     public function submitForm()
     {

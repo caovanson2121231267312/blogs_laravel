@@ -31,7 +31,6 @@ class UserRequest extends FormRequest
                 Rule::unique('users', 'email')->ignore($this->user)
             ],
             'description' => 'required|max:1000|min:2',
-            // 'avatar' => 'required|max:1000|min:2',
             'phone' => [
                 'required', 'max:100', 'min:2',
                 Rule::unique('users', 'phone')->ignore($this->user)

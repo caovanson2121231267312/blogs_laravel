@@ -419,3 +419,15 @@ a.toc-link {
 .selection>span {
     width: 168px;
 }
+
+.select-select2 .selection>span {
+    width: 100% !important;
+}
+
+.select2-container {
+    z-index: 100 !important;
+}
+
+.content img {
+    width:100%;
+}

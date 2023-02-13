@@ -76,13 +76,14 @@ class ArticleController extends Controller
             $article->tags()->attach($request->tag);
 
             DB::commit();
-            return redirect()->route("articles.index")
-                ->with('message', 'Đã tạo thành công ' . $article->name);
+
+            session()->flash('message', 'Đã tạo thành công ' . $article->name);
+            return redirect()->route("articles.index");
         } catch (Exception $e) {
             DB::rollBack();
 
-            return redirect()->back()
-                ->with(['error' => $e->getMessage()]);
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -95,12 +96,13 @@ class ArticleController extends Controller
     public function show($id)
     {
         try {
-            $data = Article::findOrFail($id)->load(["tags", "user" , "category"]);
+            $data = Article::findOrFail($id)->load(["tags", "user", "category"]);
 
             return view("admin.article.show", ["data" => $data]);
         } catch (ModelNotFoundException $e) {
 
-            return redirect()->back()->with(["error" => $e->getMessage()]);
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -114,17 +116,16 @@ class ArticleController extends Controller
     {
         try {
             $categories = Category::all();
-            // $keywords = Tag::all();
             $data = Article::findOrFail($id)->load("tags");
 
             return view("admin.article.edit", [
                 "data" => $data,
                 "categories" => $categories,
-                // "keywords" => $keywords,
             ]);
         } catch (ModelNotFoundException $e) {
 
-            return redirect()->back()->with(["error" => $e->getMessage()]);
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -167,11 +168,15 @@ class ArticleController extends Controller
             $article->tags()->sync($request->tag);
 
             DB::commit();
-            return redirect()->route("articles.index")->with(["message" => "Đã sửa thành công"]);
+
+            session()->flash("message", "Đã sửa thành công");
+            return redirect()->route("articles.index");
         } catch (ModelNotFoundException $e) {
 
             DB::rollBack();
-            return redirect()->back()->with(["error" => $e->getMessage()]);
+
+            session()->flash('error', $e->getMessage());
+            return redirect()->back();
         }
     }
 
@@ -198,6 +203,8 @@ class ArticleController extends Controller
             ], 500);
         }
 
-        return redirect()->route('articles.index')->with("delete-success", "Đã xóa " . $data->name . " thành công");
+        session()->flash("delete-success", "Đã xóa " . $data->name . " thành công");
+
+        return redirect()->route('articles.index');
     }
 }

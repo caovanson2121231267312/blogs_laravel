@@ -15,7 +15,7 @@ import './admin/lib/lazyload';
 // import './admin/lib/darkmode.min';
 // import './admin/lib/tocbot.min';
 import tippy from 'tippy.js';
- 
+
 //codemirror
 import './admin/lib/codemirror';
 import './admin/keymap/sublime';
@@ -28,7 +28,7 @@ import './admin/mode/cobol/cobol';
 import './admin/mode/php/php';
 import './admin/mode/javascript/javascript';
 //codemirror
-   
+
 import './admin/index';
 import './admin/lib/adminlte';
 import './admin/use/validate';
