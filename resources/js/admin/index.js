@@ -6,6 +6,52 @@
 //     })
 // }
 
+$(document).ready(function () {
+    $('#tag_search').select2({
+        tag: true,
+        cache: true,
+        placeholder: 'Select a tag',
+        minimumInputLength: 2,
+        ajax: {
+            url: $("#tag_search").data("url"),
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                console.log(params)
+                return {
+                    search: params.term
+                };
+            },
+            success: function (data) {
+                // console.log(data)
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+                console.log(textStatus);
+                console.log(jqXHR);
+                console.error(textStatus, errorThrown);
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.name,
+                            id: item.id
+                        }
+                    })
+                };
+            },
+        },
+    });
+});
+
+$('#tag_search').on('change', function (e) {
+
+    Livewire.emit('postAdded', e.target.value)
+
+});
+
+
 $(document).on('click', '[data-toggle="lightbox"]', function (event) {
     event.preventDefault();
     $(this).ekkoLightbox({

@@ -406,3 +406,16 @@ a.toc-link {
     font-size: 0.875em;
     color: #dc3545;
 }
+
+.select2-selection {
+    height: 90% !important;
+}
+
+.select2 {
+    height: 100%;
+    display: block;
+}
+
+.selection>span {
+    width: 168px;
+}

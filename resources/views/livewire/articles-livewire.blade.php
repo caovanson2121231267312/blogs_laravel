@@ -30,13 +30,16 @@
             </div>
         </div>
         <div class="d-flex">
-            <select class="form-control me-2" wire:model="selectedTag">
-                <option value="">All (tags)</option>
-                @foreach (App\Models\Tag::all() as $value)
+            <span wire:ignore>
+                <select class="form-control me-2 select2-ajax-tags" name="tag" wire:model="selectedTag"
+                    id="tag_search" data-url="{{ route('tags.search') }}"  wire:click="$emit('postAdded')">
+                    <option value="">All (tags)</option>
+                    {{-- @foreach (App\Models\Tag::take(100)->get() as $value)
                     <option value="{{ $value->id }}">{{ $value->name }}</option>
-                @endforeach
-            </select>
-            <select class="form-control me-2" wire:model="selectedCategory">
+                @endforeach --}}
+                </select>
+            </span>
+            <select class="form-control me-2 ms-2" wire:model="selectedCategory">
                 <option value="">All (categories)</option>
                 @foreach (App\Models\Category::all() as $value)
                     <option value="{{ $value->id }}">{{ $value->name }}</option>

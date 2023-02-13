@@ -29,15 +29,7 @@
         </section>
 
         <section class="main-container">
-            {{ Form::open(['method' => 'get', 'class' => '']) }}
-            <div class="input-group">
-                <input name="search" value="{{ old('search') }}" type="text" class="form-control"
-                    placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">Go!</button>
-                </span>
-            </div><!-- /input-group -->
-            {{ Form::close() }}
+
             <div>
                 <ul class="category d-flex justify-content-between">
                     <li>
