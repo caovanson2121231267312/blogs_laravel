@@ -9,7 +9,7 @@ use App\Traits\LivewireAble;
 class ArticlesLivewire extends Component
 {
     use LivewireAble;
-    
+
     public $selectedCategory = '';
     public $selectedTag = '';
     public $table = "articles.";
@@ -19,6 +19,14 @@ class ArticlesLivewire extends Component
         $this->model = new Article;
         $this->sortBy = $this->table . $this->sortBy;
     }
+
+    public function selectedTag($selectedTag)
+    {
+        $this->selectedTag = $selectedTag;
+    }
+
+    protected $listeners = ['postAdded' => 'selectedTag'];
+
 
     public function submitForm()
     {
@@ -34,7 +42,6 @@ class ArticlesLivewire extends Component
         $test = array_map(function ($item) {
             return $this->table . $item;
         }, $this->model->getTableColumns());
-        // dd($test);
 
         $this->data = $this->model->where($this->table . 'name', 'like', '%' . $this->name . '%')
             ->select($test)

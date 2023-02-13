@@ -30,7 +30,7 @@ class ArticleRequest extends FormRequest
                 Rule::unique('articles', 'name')->ignore($this->article)
             ],
             'description' => 'required|max:1000|min:2',
-            'content' => 'required|max:1000|min:2',
+            'content' => 'required|min:2',
             'image' => 'required|image',
         ];
     }

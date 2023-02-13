@@ -52,14 +52,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Tags:</label>
-                                            <select name="tag[]" class="select2-danger form-control select2" multiple>
-                                                @foreach ($keywords as $keyword)
-                                                    <option value="{{ $keyword->id }}"
-                                                        @foreach ($data->tags as $value)
-                                                        @if ($keyword->id == $value->id)
-                                                            {{ 'selected="selected"' }}
-                                                        @endif @endforeach>
-                                                        {{ $keyword->name }}</option>
+                                            <select name="tag[]" class="select2-danger form-control select2" multiple
+                                                id="tag_search" data-url="{{ route('tags.search') }}">
+                                                @foreach ($data->tags as $value)
+                                                    <option value="{{ $value->id }}" selected="selected">
+                                                        {{ $value->name }}</option>
                                                 @endforeach
                                             </select>
                                             <small class="text-danger"> {{ $errors->first('tag') ?? '' }} </small>

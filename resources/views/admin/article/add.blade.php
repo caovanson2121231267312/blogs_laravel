@@ -49,10 +49,10 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Tags:</label>
-                                            <select name="tag[]" class="select2-danger form-control select2" multiple>
-                                                @foreach ($keywords as $value)
+                                            <select name="tag[]" class="select2-danger form-control select2 select2-ajax-tags" multiple id="tag_search" data-url="{{route("tags.search")}}">
+                                                {{-- @foreach ($keywords as $value)
                                                     <option value="{{ $value->id }}">{{ $value->name }}</option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </select>
                                             <small class="text-danger"> {{ $errors->first('tag') ?? '' }} </small>
                                         </div>

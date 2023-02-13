@@ -1,14 +1,14 @@
 import _ from 'lodash';
 window._ = _;
-import Popper from './admin/lib/popper.js'; 
+import Popper from './admin/lib/popper.js';
 import Swal from 'sweetalert2';
 
 import 'bootstrap';
 
 try {
-   window.Popper = Popper; 
+   window.Popper = Popper;
    window.Swal = Swal;
-} catch (e) {console.log(e)}
+} catch (e) { console.log(e) }
 
 import axios from 'axios';
 window.axios = axios;

@@ -41,9 +41,9 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $keywords = Tag::all();
+        // $keywords = Tag::all();
 
-        return view("admin.article.add", compact('categories', 'keywords'));
+        return view("admin.article.add", compact('categories'));
     }
 
     /**
@@ -114,13 +114,13 @@ class ArticleController extends Controller
     {
         try {
             $categories = Category::all();
-            $keywords = Tag::all();
+            // $keywords = Tag::all();
             $data = Article::findOrFail($id)->load("tags");
 
             return view("admin.article.edit", [
                 "data" => $data,
                 "categories" => $categories,
-                "keywords" => $keywords,
+                // "keywords" => $keywords,
             ]);
         } catch (ModelNotFoundException $e) {
 

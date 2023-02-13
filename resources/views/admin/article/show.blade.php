@@ -8,7 +8,7 @@
 
 @section('body')
     <div class="content-wrapper">
-        <x-breadcrumb name="{{ $data->name }}" />
+        <x-breadcrumb name="Detail blog" />
 
         <section class="content">
             <div class="container-fluid">
@@ -80,10 +80,6 @@
                                             <td>{{ $data->description }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Content: </td>
-                                            <td>{!! $data->content !!}</td>
-                                        </tr>
-                                        <tr>
                                             <td>Created_at: </td>
                                             <td>{{ date_format($data->created_at, 'H:i:s d/m/Y') }}</td>
                                         </tr>
@@ -110,6 +106,12 @@
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <div class="col-10">
+                                    <div class="w-100">
+                                        {!! $data->content !!}
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                         </div>
