@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Elasticquent\ElasticquentTrait;
 
 class Tag extends Model
 {
     use HasFactory;
-    use Sluggable;
+    use Sluggable, ElasticquentTrait;
 
     protected $fillable = [
         'name',

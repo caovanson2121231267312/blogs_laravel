@@ -14,17 +14,14 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-// Route::group(['prefix' => '{l}'], function ($language) {
-
 Route::group(['middleware' => 'locale'], function () {
 
     Auth::routes();
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::post('search', [App\Http\Controllers\HomeController::class, 'create'])->name('search');
+    Route::get('search', [App\Http\Controllers\HomeController::class, 'create'])->name('search');
     Route::get('/email/{slug}', [App\Http\Controllers\HomeController::class, 'email'])->name('email');
     Route::get('/tags/search', [App\Http\Controllers\Api\TagController::class, 'searchTags'])->name('tags.search');
-    Route::post('classify_animal', [App\Http\Controllers\Ai\TensorFlowController::class, 'classifyAnimal'])->name('classify_animal');
 
     Route::get('refresh', [App\Http\Controllers\HomeController::class, 'refresh'])->name('refresh');
     Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('change-language');
@@ -46,6 +43,9 @@ Route::group(['middleware' => 'locale'], function () {
 
         Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
 
+        Route::get('/logs', [App\Http\Controllers\Admin\LogController::class, 'index'])->name('admin.log');
+        Route::get('/logs/show/{file_name}', [App\Http\Controllers\Admin\LogController::class, 'show'])->name('admin.log.show');
+
         Route::controller(ExportController::class)->group(function () {
 
             Route::get('exportTags', 'exportTags')->name('exportTags');
@@ -63,4 +63,3 @@ Route::group(['middleware' => 'locale'], function () {
         });
     });
 });
-// });

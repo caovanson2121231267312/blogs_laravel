@@ -1,6 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('home') }}" class="brand-link text-center">
         <span class="brand-text font-weight-light">Admin</span>
+        <input value="{{ Auth::user()->id }}" id="user_id" hidden />
     </a>
 
     <div class="sidebar">
@@ -130,16 +131,24 @@
                     </li>
                 @else
                 @endhasrole
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('refresh') }}" class="nav-link">
                         <i class="nav-icon fas fa-sync-alt"></i>
                         <p>
                             Refresh
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="{{ url('log-viewer') }}" target="_blank" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>
+                            Logs
+                        </p>
+                    </a>
+                </li> --}}
+                <li class="nav-item">
+                    <a href="{{ route('admin.log') }}" target="_blank" class="nav-link">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>
                             Logs
@@ -159,7 +168,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
@@ -182,7 +191,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
                 {{-- <li class="nav-item">
             <a href="#" class="nav-link">

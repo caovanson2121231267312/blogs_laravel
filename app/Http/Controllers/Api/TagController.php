@@ -12,7 +12,8 @@ class TagController extends Controller
     {
         $search = $request->get('search');
 
-        $tags = Tag::where('name', 'like', "%{$search}%")->get();
+        $tags = Tag::searchByQuery(['match' => ['name' => $search]]);
+        // where('name', 'like', "%{$search}%")->get();
 
         return response()->json($tags);
     }

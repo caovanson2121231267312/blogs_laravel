@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "bensampo/laravel-enum": "^6.3",
+        "beyondcode/laravel-websockets": "^1.13",
         "cviebrock/eloquent-sluggable": "^9.0",
         "elasticquent/elasticquent": "dev-master",
         "fabpot/goutte": "^4.0",
@@ -23,6 +24,7 @@
         "livewire/livewire": "^2.11",
         "maatwebsite/excel": "^3.1",
         "opcodesio/log-viewer": "^1.9",
+        "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-permission": "^5.8"
     },
     "require-dev": {

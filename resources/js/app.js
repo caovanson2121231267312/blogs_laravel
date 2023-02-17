@@ -1,5 +1,5 @@
-import './bootstrap';
 import './admin/lib/jquery.min';
+import './bootstrap';
 // import ClipboardJS from 'clipboard';
 
 import './admin/lib/jquery.validate.min';
@@ -48,3 +48,10 @@ import './admin/use/function';
 // })
 
 tippy('[data-tippy-content]');
+
+
+// Echo.channel('caoson')
+//     .listen('LockAccUser', (e) => {
+//         console.log(e);
+//     })
+

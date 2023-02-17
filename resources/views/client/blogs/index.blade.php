@@ -71,93 +71,9 @@
                 </div>
 
                 <div class="p-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem id varius rutrum aliquam. Diam
-                        ullamcorper ut mattis fringilla nunc, sed eu nisi. Amet, duis auctor tempor sit mauris rhoncus.
-                        Pretium at massa sed morbi sit tincidunt arcu. Pharetra, turpis id elementum cursus amet, eu
-                        scelerisque ipsum. Suspendisse nulla congue mauris mattis diam sed venenatis non bibendum.
-                        Vestibulum, lobortis aenean lorem aenean sagittis. Et nibh ullamcorper justo cursus eget. Tortor
-                        faucibus volutpat, vel nullam sed massa ullamcorper in ultrices. Augue viverra tincidunt amet,
-                        neque, dictum tellus turpis. Ipsum nisl mi est, tempus phasellus morbi quisque. Mi sed sit amet
-                        ipsum. Mi erat leo fringilla ullamcorper.
-                    </p>
-                    <p>
-                        Aenean gravida cursus tempus nullam ipsum sit et. Id pellentesque vel, mattis massa vitae. Amet, vel
-                        nunc sed adipiscing fermentum suspendisse est bibendum. Elit interdum tincidunt diam egestas
-                        condimentum nibh. Massa mollis vitae id morbi pulvinar tincidunt. Risus euismod nec fringilla eros,
-                        commodo. Odio morbi in at penatibus eleifend orci scelerisque. Auctor ornare volutpat penatibus
-                        maecenas vel. Luctus libero at in ut justo molestie aliquet. Ultricies suspendisse hac nibh vivamus
-                        facilisis nulla.
-                    </p>
-                    <p>
-                        Augue et elit velit malesuada sit egestas et augue volutpat. Sagittis, suspendisse semper mi
-                        faucibus aliquam eget. Cras diam nunc, malesuada amet imperdiet quis molestie. Nibh nunc lacus quis
-                        quis nisi integer. Tincidunt viverra semper nisl, quis vel cras fermentum. Porttitor tortor urna
-                        pulvinar rhoncus, adipiscing nisl facilisi vulputate. Massa vestibulum lorem nunc purus phasellus
-                        commodo praesent a. Proin integer non ultrices sagittis, sit non adipiscing eu risus. Ac dignissim
-                        malesuada et lectus ut iaculis at libero. Id ut non consectetur cursus purus. Egestas cursus vitae
-                        odio enim. Nunc, non ac quam gravida in. Odio morbi ullamcorper nullam nisi, risus, donec.
-                    </p>
+                    {!! $post->content !!}
                 </div>
 
-                <div class="row">
-                    <div class="col-12 col-md-8 col-lg-8 col-xl-8">
-                        <img class="img-full" src="{{ asset('client/images/news/img_11.png') }}">
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-4 col-xl-4 row">
-                        <div class="col-6">
-                            <img class="img-full br-24" src="{{ asset('client/images/news/img_12.png') }}">
-                        </div>
-                        <div class="col-6">
-                            <img class="img-full br-24" src="{{ asset('client/images/news/img_13.png') }}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="h3 mt-1">
-                    Lorem ipsum dolor sit amet,
-                </div>
-
-                <div class="p-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem id varius rutrum aliquam. Diam
-                        ullamcorper ut mattis fringilla nunc, sed eu nisi. Amet, duis auctor tempor sit mauris rhoncus.
-                        Pretium at massa sed morbi sit tincidunt arcu. Pharetra, turpis id elementum cursus amet, eu
-                        scelerisque ipsum. Suspendisse nulla congue mauris mattis diam sed venenatis non bibendum.
-                        Vestibulum, lobortis aenean lorem aenean sagittis. Et nibh ullamcorper justo cursus eget. Tortor
-                        faucibus volutpat, vel nullam sed massa ullamcorper in ultrices. Augue viverra tincidunt amet,
-                    </p>
-                </div>
-
-                <div class="li-content">
-                    <ul>
-                        <li>
-                            <span class="s1">Tiêu chí 1: </span>
-                            <span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit molestie
-                                etiam nunc egestas</span>
-                        </li>
-                        <li>
-                            <span class="s1">Tiêu chí 2: </span>
-                            <span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit molestie
-                                etiam nunc egestas</span>
-                        </li>
-                        <li>
-                            <span class="s1">Tiêu chí 3: </span>
-                            <span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit molestie
-                                etiam nunc egestas</span>
-                        </li>
-                        <li>
-                            <span class="s1">Tiêu chí 4: </span>
-                            <span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit molestie
-                                etiam nunc egestas</span>
-                        </li>
-                        <li>
-                            <span class="s1">Tiêu chí 5: </span>
-                            <span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit molestie
-                                etiam nunc egestas</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
 
             <div class="tag">
@@ -251,7 +167,7 @@
                     </span>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
 
                     @foreach ($posts as $value)
                         <div class="post-item row">
@@ -307,7 +223,7 @@
                         </div>
                     @endforeach
 
-                </div>
+                </div> --}}
             </div>
 
 
