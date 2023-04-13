@@ -2,232 +2,142 @@
 
 @section('title')
     <title>
-        {{ $post->name }}
+        {{-- {{ $post->name }} --}}
     </title>
-    <meta name="description" content="{{ $post->description }}" />
+    {{-- <meta name="description" content="{{ $post->description }}" /> --}}
     <meta name="keywords" content="Cao Sơn">
     <meta name="author" content="Cao Sơn" />
 @endsection
 
 @section('body')
-    <div class="container">
-        <div class="m-t-10"></div>
-
-        <section class="main-container">
-            <div class="dff">
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex align-items-center">
-                        <span>
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span>
-                            <a class="back" href="{{ route('home') }}">Quay lại</a>
-                        </span>
-                    </div>
-                    <div>
-                        <span>Chuyên mục: </span>
-                        <a class="btn-cate m-f-r" href="">{{ $post->category->name }}</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content">
-                <p class="title-post">
-                    {{ $post->name }}
-                </p>
-
-                <div class="d-flex justify-content-between">
-                    <div class="m-t-b-1 d-flex align-items-center">
-                        <span class="address-news">
-                            <a href="">{{ $post->category->name }}</a>
-                        </span>
-                        <span>.</span>
-                        <span class="user-name-news">
-                            {{ $post->user->name }}
-                        </span>
-                        <span>.</span>
-                        <span class="date-news">
-                            {{ date_format($post->created_at, 'd/m/Y') }}
-                        </span>
-                    </div>
-                    <div class="m-t-b-1 w-c">
-                        <a class="btn btn-mail" href="">
-                            <i class="far fa-envelope"></i>
-                            <span class="d-none-mobile1">Gửi mail</span>
-                        </a>
-                        <a class="btn btn-share" href="">
-                            <i class="fab fa-facebook"></i>
-                            <span class="d-none-mobile1">Chia sẻ</span>
-                        </a>
-                        <a class="btn btn-save" href="">
-                            <i class="fas fa-heart"></i>
-                            <span class="d-none-mobile1">Lưu</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="img-post">
-                    <img src="{{ asset('assets/images/articles/' . $post->image) }}">
-                </div>
-
-                <div class="p-content">
-                    {!! $post->content !!}
-                </div>
-
-            </div>
-
-            <div class="tag">
-                @foreach ($post->tags as $value)
-                    <a class="btn btn-tag" href="tag/{{ $value->slug }}"># {{ $value->name }}</a>
-                @endforeach
-            </div>
-
-            <div class="post">
-                <div class="d-flex justify-content-between mt-5">
-                    <span class="p-b">Tin cùng chuyên mục <a class="btn-cate m-f-r" href="">Xã hội</a>
-
-                    </span>
-                    <a class="d-none  d-flex-m align-items-center" href="">
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                    <span class="d-none-mobile1">
-                        <a href="">Xem tất cả</a>
-                    </span>
-                </div>
-
+    <!--  -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="text-center">TOP BÀI VIẾT</h4>
+            <hr>
+        </div>
+    </div>
+    <!-- item -->
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9">
+            <div>
                 <div class="row">
-
-                    @foreach ($post_same as $value)
-                        <div class="post-item row">
-                            <div class="col-12 d-none d-block-md">
-                                <a class="" href="{{ route('blogs', $value->slug) }}">
-                                    <p class="title-news">{{ $value->name }}</p>
-                                </a>
-                                <div class="m-t-b-1 m-0-mb">
-                                    <span class="address-news">
-                                        <a href="{{ route('blogs', $value->slug) }}">{{ $value->category->name }}</a>
-                                    </span>
-                                    <span>.</span>
-                                    <span class="user-name-news">
-                                        {{ $value->user->name }}
-                                    </span>
-                                    <span>.</span>
-                                    <span class="date-news">
-                                        {{ date_format($value->created_at, 'd/m/Y') }}
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="img p-r col-6 col-lg-4 col-xl-4">
-                                <a href="{{ route('blogs', $value->slug) }}">
-                                    <img src="{{ asset('assets/images/articles/' . $value->image) }}">
-                                </a>
-                                <span class="p-a add-like">
-                                    <a href="">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="col-6 col-lg-8 col-xl-8">
-                                <a class="d-none-mobile" href="{{ route('blogs', $value->slug) }}">
-                                    <p class="title-news">{{ $value->name }}</p>
-                                </a>
-                                <div class="d-none-mobile m-t-b-1">
-                                    <span class="address-news">
-                                        <a href="">{{ $value->category->name }}</a>
-                                    </span>
-                                    <span>.</span>
-                                    <span class="user-name-news">
-                                        {{ $value->user->name }}
-                                    </span>
-                                    <span>.</span>
-                                    <span class="date-news">
-                                        {{ date_format($value->created_at, 'd/m/Y') }}
-                                    </span>
-                                </div>
-                                <div class="title-description">
-                                    {{ $value->description }}
-                                </div>
+                    {{--  --}}
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                        <div class="card text-center">
+                            <img class="img-fluid card-img-top" src="assets/images/slider/img-slide-3.jpg"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="">Card title</h5>
+                                <p class="card-text">
+                                    This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <a href="#!" class="btn  btn-primary">Xem Thêm &gt;</a>
                             </div>
                         </div>
-                    @endforeach
-
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                        <div class="card text-center">
+                            <img class="img-fluid card-img-top" src="assets/images/slider/img-slide-3.jpg"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="">Card title</h5>
+                                <p class="card-text">
+                                    This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <a href="#!" class="btn  btn-primary">Xem Thêm &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                        <div class="card text-center">
+                            <img class="img-fluid card-img-top" src="assets/images/slider/img-slide-3.jpg"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="">Card title</h5>
+                                <p class="card-text">
+                                    This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <a href="#!" class="btn  btn-primary">Xem Thêm &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                        <div class="card text-center">
+                            <img class="img-fluid card-img-top" src="assets/images/slider/img-slide-3.jpg"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="">Card title</h5>
+                                <p class="card-text">
+                                    This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <a href="#!" class="btn  btn-primary">Xem Thêm &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                        <div class="card text-center">
+                            <img class="img-fluid card-img-top" src="assets/images/slider/img-slide-3.jpg"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="">Card title</h5>
+                                <p class="card-text">
+                                    This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <a href="#!" class="btn  btn-primary">Xem Thêm &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{--  --}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 ">
+            <div class="card border-radius-2px">
+                <div class="card-body">
+                    <form class="input-group rounded-1" method="get" action="">
+                        <input type="text" class="form-control border-radius-2px" placeholder="Tìm kiếm bài viết...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-icon" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
-            <div class="post">
-                <div class="d-flex justify-content-between mt-5">
-                    <span class="p-b">Tin thịnh hành
-
-                    </span>
-                    <a class="d-none d-initial-mobile1" href="">
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                    <span class="d-none-mobile1">
-                        <a href="">Xem tất cả</a>
-                    </span>
+            <div class="card border-radius-2px mt-10">
+                <div class="card-header p-t-10 p-b-0">
+                    <h3 class="h4 p-0">
+                        Bài viết mới nhất
+                    </h3>
                 </div>
-
-                {{-- <div class="row">
-
-                    @foreach ($posts as $value)
-                        <div class="post-item row">
-                            <div class="col-12 d-none d-block-md">
-                                <a class="" href="{{ route('blogs', $value->slug) }}">
-                                    <p class="title-news">{{ $value->name }}</p>
+                <hr class="m-0 p-0">
+                <div class="card-body">
+                    <div>
+                        <ul class="list-news">
+                            <li class="item-news">
+                                <a class="text-dark mb-0" href="#">
+                                    Làm Thế Nào Để Ứng Viên Không "Bùng" Lịch Phỏng Vấn
                                 </a>
-                                <div class="m-t-b-1 m-0-mb">
-                                    <span class="address-news">
-                                        <a href="">{{ $value->category->name }}</a>
-                                    </span>
-                                    <span>.</span>
-                                    <span class="user-name-news">
-                                        {{ $value->user->name }}
-                                    </span>
-                                    <span>.</span>
-                                    <span class="date-news">
-                                        {{ date_format($value->created_at, 'd/m/Y') }}
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="img p-r col-6 col-lg-4 col-xl-4">
-                                <a href="{{ route('blogs', $value->slug) }}">
-                                    <img src="{{ asset('assets/images/articles/' . $value->image) }}">
-                                </a>
-                                <span class="p-a add-like">
-                                    <a href="">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="col-6 col-lg-8 col-xl-8">
-                                <a class="d-none-mobile" href="{{ route('blogs', $value->slug) }}">
-                                    <p class="title-news">{{ $value->name }}</p>
-                                </a>
-                                <div class="d-none-mobile m-t-b-1">
-                                    <span class="address-news">
-                                        <a href="">{{ $value->category->name }}</a>
-                                    </span>
-                                    <span>.</span>
-                                    <span class="user-name-news">
-                                        {{ $value->user->name }}
-                                    </span>
-                                    <span>.</span>
-                                    <span class="date-news">
-                                        {{ date_format($value->created_at, 'd/m/Y') }}
-                                    </span>
-                                </div>
-                                <div class="title-description">
-                                    {{ $value->description }}
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-
-                </div> --}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-
-        </section>
+        </div>
 
     </div>
+
+    <div class="text-center">
+        <a href="#">
+            <button class="btn btn-outline-danger more-btn">
+                Xem Thêm >>>
+            </button>
+        </a>
+    </div>
+    <!--  -->
 @endsection

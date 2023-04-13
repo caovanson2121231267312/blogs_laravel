@@ -45,7 +45,52 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#user_search').select2({
+        tag: true,
+        cache: true,
+        placeholder: 'Select a User',
+        minimumInputLength: 2,
+        ajax: {
+            url: $("#user_search").data("url"),
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                console.log(params)
+                return {
+                    search: params.term
+                };
+            },
+            success: function (data) {
+                // console.log(data)
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+                console.log(textStatus);
+                console.log(jqXHR);
+                console.error(textStatus, errorThrown);
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.name,
+                            id: item.id
+                        }
+                    })
+                };
+            },
+        },
+    });
+});
+
 $('#tag_search').on('change', function (e) {
+
+    Livewire.emit('postAdded', e.target.value)
+
+});
+
+$('#user_search').on('change', function (e) {
 
     Livewire.emit('postAdded', e.target.value)
 
@@ -117,9 +162,11 @@ $('#compose-textarea').summernote({
     ]
 });
 
+console.log(123)
+
 try {
-    if (!window.location.toString().split('/').includes("admin")) {
-        $('textarea[id^=codeMirrorHtml]').each(function () {
+    // if (!window.location.toString().split('/').includes("admin")) {
+        $('.codeMirrorHtml').each(function () {
             CodeMirror.fromTextArea(this, {
                 mode: "htmlmixed",
                 theme: "dracula",
@@ -133,7 +180,7 @@ try {
                 viewportMargin: Infinity,
             });
         });
-    }
+    // }
 } catch (e) {
     console.log(e)
 }

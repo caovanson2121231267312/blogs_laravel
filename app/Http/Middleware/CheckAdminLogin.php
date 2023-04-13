@@ -11,12 +11,12 @@ class CheckAdminLogin
 {
     public function handle(Request $request, Closure $next)
     {
-        $roles = Auth::user()->getRoleNames();
-        foreach($roles as $role){
-            if($role == User::SUPER_ADMIN || $role == User::ADMIN){
+        $roles = auth()->user()->getRoleNames();
+        foreach ($roles as $role) {
+            if ($role == User::SUPER_ADMIN || $role == User::ADMIN) {
                 // dd(Auth::user());
                 // if(Auth::user()->login_type == 0){
-                    return $next($request);
+                return $next($request);
                 // }else {
                 //     return redirect()->route('home');
                 // }

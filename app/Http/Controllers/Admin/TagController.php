@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tag;
 use App\Http\Requests\TagRequest;
+use App\CustomWebSocketHandler;
 
 class TagController extends Controller
 {

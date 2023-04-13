@@ -97,6 +97,12 @@ return [
 
     'fallback_locale' => 'en',
 
+    'available_locales' => [
+        'English' => 'en',
+        'Russian' => 'ru',
+        'French' => 'fr',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Faker Locale
@@ -195,6 +201,7 @@ return [
         App\Providers\EventServiceProvider::class,
         // App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
@@ -202,6 +209,7 @@ return [
         BenSampo\Enum\EnumServiceProvider::class,
         Elasticquent\ElasticquentServiceProvider::class,
         BeyondCode\LaravelWebSockets\WebSocketsServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
     ],
 

@@ -26,11 +26,11 @@ class DatabaseSeeder extends Seeder
             'email' => "son1669063793@gmail.com",
             'password' => Hash::make("123123123"),
         ]);
-        $user->assignRole(['3']);
 
         $role = Role::create(['name' => 'Super-Admin']);
         Role::create(['name' => 'Admin']);
         Role::create(['name' => 'User']);
+        $user->assignRole(['3']);
     
         $permissions = Permission::pluck('id','id')->all();
 

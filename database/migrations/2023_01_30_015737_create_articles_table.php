@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id')->index();
+            $table->string('name')->index();
             $table->string('slug')->index()->unique();
             $table->text('description')->nullable();
             $table->longText('content')->nullable();
@@ -27,6 +27,7 @@ return new class extends Migration
 
             $table->bigInteger('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

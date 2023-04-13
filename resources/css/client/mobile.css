@@ -1,12 +1,31 @@
 @media (max-width:580px) {
+    .icon-call,.icon-google-it {
+        display: none!important;
+    }
+}
+@media (max-width:580px) {
     .carousel-inner-h {
         height: auto;
+    }
+    .main {
+        width: 80%;
+        padding: 39px 23px;
     }
 }
 
 @media (max-width:768px) {
     .container {
         width: 750px
+    }
+}
+
+@media (max-width:728px) {
+    .collapse.navbar-collapse {
+        padding-top: 10px;
+        justify-content: center;
+    }
+    .collapse.navbar-collapse .navbar-nav.ms-auto{
+        margin: 0!important;
     }
 }
 
@@ -21,9 +40,13 @@
     .container {
         width: 1170px
     }
+
+    .input-group-w {
+        width: calc(100%)!important;
+    }
 }
 @media (max-width: 991px) and (min-width: 768px){
-.industry-item .industry-item__icon {
-    padding: 0 20px;
-}
+    .industry-item .industry-item__icon {
+        padding: 0 20px;
+    }
 }

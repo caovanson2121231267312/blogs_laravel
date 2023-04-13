@@ -28,6 +28,7 @@ class BlogsCrawl extends Command
     public function handle()
     {
         $bot = new \App\Crawl\Blogs();
-        $bot->blogsItviec();
+        $bot->bt1();
+        // $bot->blogsItviec();
     }
 }

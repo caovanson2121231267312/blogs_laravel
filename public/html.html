@@ -1,0 +1,210 @@
+<h2 id="1-bootstrap-la-gi" class="h2 code-h2">1. Bootstrap là gì?</h2> <p id="p-0" class="code-p"> Bootstrap là một framework CSS phổ biến được sử dụng để xây dựng các trang web đáp ứng. Nó được phát triển bởi Twitter và hiện đã trở thành một trong những framework phổ biến nhất cho phát triển trang web. </p> <p id="p-655298982" class="code-p"> Bootstrap cung cấp các thành phần cơ bản như Grid System, CSS class, Typography, Forms, Buttons, Navbar và Dropdown để giúp phát triển trang web một cách nhanh chóng và dễ dàng. Bên cạnh đó, Bootstrap cũng cung cấp các tính năng hỗ trợ bởi JavaScript như Modal, Tooltip, Popover, Carousel, Scrollspy và Collapse. </p> <p id="p-1020387828" class="code-p"> Bootstrap có thể được sử dụng thông qua CDN hoặc tải xuống và cài đặt trên máy tính của mình. Với sự phát triển và cập nhật thường xuyên, Bootstrap là một công cụ hữu ích cho các nhà phát triển web để tăng tốc độ phát triển và cải thiện trải nghiệm người dùng.</p><p id="p-1020387828" class="code-p"><br></p><p id="p-1020387828" class="code-p"> </p> <div> <h2 id="2-cac-cac-cai-dat-bootstrap" class="h2 code-h2">2. Các các cài đặt bootstrap.</h2><p><br></p> <div> <h3 id="21-tai-bootstrap-truc-tiep-tu-trang-chu-bootstrap" class="h3 code-h3">2.1. Tải Bootstrap trực tiếp từ trang chủ Bootstrap</h3><p><br></p> Bước 1: Click vào đường link dưới đây để tải Bootstrap về. Nó sẽ được tải dưới dạng một folder Zip, chứa các folder CSS và JS: https://github.com/twbs/bootstrap/releases/download/v5.3.0-alpha1/bootstrap-5.3.0-alpha1-dist.zip </div><div>Bước 2: Giải nén và include 2 file bootstrap.min.css và bootstrap.bundle.min.js vào trang html của bạn như vầy:</div><div><br></div>
+<div class="row">
+
+    <div class="col-md-12">
+      <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Code Demo
+          </h3>
+          <button class="copy float-end" data-toggle="tooltip" data-placement="left" title="Copy to clipboard">
+              <i class="fas fa-copy"></i>
+          </button>
+        </div>
+<div class="card-body p-0">
+<textarea class="p-3 codeMirrorHtml" data-copy="3">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1.0">
+        <title>Học Bootstrap cùng với CodeMarket</title>
+
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <script src="./css/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="btn btn-success">button</div>
+    </body>
+</html>
+</textarea>
+</div>
+</div>
+<div class="card-footer">
+  Tham gia và theo dõi <a href="https://codemarket.vn/">CodeMarket</a> để nhận thêm nhiều kiến thức bổ ích.
+</div>
+</div>  
+
+</div>
+
+</div>
+</div>
+<div> <h3 id="22-nhung-truc-tiep-cdn-vao-trang-web-cua-ban" class="h3 code-h3">2.2. Nhúng trực tiếp cdn vào trang web của bạn</h3> <p id="p-114741288" class="code-p">Cách này thì đơn giản nhanh gọn lẹ, tuy nhiên có chút điểm yếu nếu host của bootstrap có vẫn đề hay gặp phải sự cố gì thì trang wweb của mình dùng cdn cũng sẽ gặp lỗi</p> <p id="p-3937690512" class="code-p">Ví dụ cách sử dụng</p>
+    <div class="row">
+
+        <div class="col-md-12">
+          <div class="card card-outline card-info">
+            <div class="card-header">
+              <h3 class="card-title">
+                Code Demo
+              </h3>
+              <button class="copy float-end" data-toggle="tooltip" data-placement="left" title="Copy to clipboard">
+                  <i class="fas fa-copy"></i>
+              </button>
+            </div>
+        <div class="card-body p-0">
+    <textarea class="p-3 codeMirrorHtml" data-copy="3">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1.0">
+        <title>Học Bootstrap cùng với CodeMarket</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="btn btn-success">button</div>
+    </body>
+</html>
+    </textarea>
+    </div>
+    </div>
+    <div class="card-footer">
+        Tham gia và theo dõi <a href="https://codemarket.vn/">CodeMarket</a> để nhận thêm nhiều kiến thức bổ ích.
+    </div>
+    </div>  
+    
+    </div>
+    
+    </div>
+    </div>
+    <p id="p-3937690512" class="code-p"><br></p> <h3 id="23-su-dung-npm-de-cai-dat" class="h3 code-h3">2.3. Sử dụng npm để cài đặt.</h3> <p id="p-705595650" class="code-p">Ví dụ cách sử dụng</p>
+    <div class="row">
+
+        <div class="col-md-12">
+          <div class="card card-outline card-info">
+            <div class="card-header">
+              <h3 class="card-title">
+                Code Demo
+              </h3>
+              <button class="copy float-end" data-toggle="tooltip" data-placement="left" title="Copy to clipboard">
+                  <i class="fas fa-copy"></i>
+              </button>
+            </div>
+        <div class="card-body p-0">
+    <textarea class="p-3 codeMirrorHtml" data-copy="3">
+    npm install bootstrap
+    </textarea>
+    </div>
+    </div>
+    <div class="card-footer">
+        Tham gia và theo dõi <a href="https://codemarket.vn/">CodeMarket</a> để nhận thêm nhiều kiến thức bổ ích.
+    </div>
+    </div>  
+    
+    </div>
+    
+    </div>
+    </div>
+    <p id="p-705595650" class="code-p"><br></p> </div> </div> <div> <h2 id="3-vi-du-cach-su-dung-cac-class-bootstap-co-ban" class="h2 code-h2">3. Ví dụ cách sử dụng các class bootstap cơ bản.</h2><p><br>
+        <p>container và container-fluid: Các class này được sử dụng để tạo ra một khu vực chứa nội dung của trang web. container tạo ra một khu vực giới hạn với độ rộng cố định, trong khi container-fluid tạo ra một khu vực toàn bộ chiều rộng của trình duyệt.
+        </p>
+        <p>row và col-*: Các class này được sử dụng để tạo ra các hàng và cột của một lưới. row tạo ra một hàng, trong khi col-* tạo ra một cột với kích thước được chỉ định.
+        </p>
+        <p>btn và btn-*: Các class này được sử dụng để tạo ra các nút bấm trên trang web. btn tạo ra một nút bấm cơ bản, trong khi btn-* tạo ra một nút bấm với kiểu và màu sắc được chỉ định.</p>
+        <p>alert và alert-*: Các class này được sử dụng để tạo ra các hộp cảnh báo trên trang web. alert tạo ra một hộp cảnh báo cơ bản, trong khi alert-* tạo ra một hộp cảnh báo với kiểu và màu sắc được chỉ định.
+        </p>
+        <p>navbar và navbar-*: Các class này được sử dụng để tạo ra thanh điều hướng trên trang web. navbar tạo ra một thanh điều hướng cơ bản, trong khi navbar-* tạo ra một thanh điều hướng với kiểu và màu sắc được chỉ định.
+        </p>
+        <p>carousel và carousel-*: Các class này được sử dụng để tạo ra các carousel hoặc slideshow trên trang web. carousel tạo ra một carousel cơ bản, trong khi carousel-* tạo ra một carousel với kiểu và màu sắc được chỉ định.</p>
+        <p>form và form-*: Các class này được sử dụng để tạo ra các biểu mẫu trên trang web. form tạo ra một biểu mẫu cơ bản, trong khi form-* tạo ra một biểu mẫu với kiểu và màu sắc được chỉ định.</p>
+        <p></p>
+        <p></p><br>
+        <div class="row">
+
+            <div class="col-md-12">
+              <div class="card card-outline card-info">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    Code Demo
+                  </h3>
+                  <button class="copy float-end" data-toggle="tooltip" data-placement="left" title="Copy to clipboard">
+                      <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+            <div class="card-body p-0">
+        <textarea class="p-3 codeMirrorHtml" data-copy="3">
+        <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1.0">
+        <title>Học Bootstrap cùng với CodeMarket</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container px-4 py-5" id="featured-3">
+            <h2 class="pb-2 border-bottom">Columns with icons</h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                <div class="feature col">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+                </div>
+                <h3 class="fs-2">Featured title</h3>
+                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                <a href="#" class="icon-link d-inline-flex align-items-center">
+                    Call to action
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+                </div>
+                <div class="feature col">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
+                </div>
+                <h3 class="fs-2">Featured title</h3>
+                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                <a href="#" class="icon-link d-inline-flex align-items-center">
+                    Call to action
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+                </div>
+                <div class="feature col">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+                </div>
+                <h3 class="fs-2">Featured title</h3>
+                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                <a href="#" class="icon-link d-inline-flex align-items-center">
+                    Call to action
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+        </textarea>
+        </div>
+        </div>
+        <div class="card-footer">
+            Tham gia và theo dõi <a href="https://codemarket.vn/">CodeMarket</a> để nhận thêm nhiều kiến thức bổ ích.
+        </div>
+        </div>  
+        
+        </div>
+        
+        </div>
+        </div>
+    </p> <div> </div> </div> <div> <h2 id="4-tai-lieu-tham-khao" class="h2 code-h2"> 4. Tài liệu tham khảo. </h2> <div> Nếu bạn muốn tìm hiểu thêm về <a href="" id="a-0" class="code-a" title="Bootstrap">Bootstrap</a>, bạn có thể tham khảo các nguồn sau đây: </div><blockquote class="code-blockquote"> Trang chính thức của Bootstrap: <a href="" id="a-932535201" class="code-a" title="https://getbootstrap.com/">https://getbootstrap.com/</a><br> Tài liệu Bootstrap: <a href="" id="a-890475720" class="code-a" title="https://getbootstrap.com/docs/5.1/getting-started/introduction/">https://getbootstrap.com/docs/5.1/getting-started/introduction/</a><br> Bootstrap trên GitHub: <a href="" id="a-1770760890" class="code-a" title="https://github.com/twbs/bootstrap">https://github.com/twbs/bootstrap</a><br> Hướng dẫn Bootstrap trên W3Schools: <a href="" id="a-4065461436" class="code-a" title="https://www.w3schools.com/bootstrap/">https://www.w3schools.com/bootstrap/</a><br> Khoá học Bootstrap trên Udemy: <a href="" id="a-2145061575" class="code-a" title="https://www.udemy.com/topic/bootstrap/">https://www.udemy.com/topic/bootstrap/</a><br> Bootstrap trên Stack Overflow: <a href="" id="a-221500368" class="code-a" title="https://stackoverflow.com/questions/tagged/bootstrap">https://stackoverflow.com/questions/tagged/bootstrap</a><br> Các bài viết về Bootstrap trên Medium: <a href="" title="https://medium.com/tag/bootstrap" id="a-8421408282" class="code-a">https://medium.com/tag/bootstrap</a><br> Hướng dẫn Bootstrap trên Tutorials Point: <a href="" title="https://www.tutorialspoint.com/bootstrap/index.htm" id="a-8082303432" class="code-a">https://www.tutorialspoint.com/bootstrap/index.htm</a> </blockquote> </div> <br> <div> <p id="p-4703617170" class="code-p">Nếu thấy bài viết hay và hữu ích các bạn nhớ share và follow giúp mình nhé, cảm ơn các bạn.</p> </div>

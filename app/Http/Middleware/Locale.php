@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App;
 
 class Locale
 {
@@ -16,11 +17,9 @@ class Locale
      */
     public function handle(Request $request, Closure $next)
     {
-        $language = \Session::get('website_language', config('app.locale'));
+        $language = session()->get('website_language');
 
-        config(['app.locale' => $language]);
-        // dd(config('app'));
-        // dd(__("messages.reload"));
+        App::setLocale($language);
 
         return $next($request);
     }

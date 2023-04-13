@@ -72,89 +72,221 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="{{ route('categories.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-code"></i>
                         <p>
-                            {{ __('messages.categories.title') }}
+                            {{ __('messages.code_manager') }}
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('codes.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    {{ __('messages.codes.title') }}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('products.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    {{ __('messages.products.title') }}
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="{{ route('tags.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-search-plus"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-tie"></i>
                         <p>
-                            {{ __('messages.tags.title') }}
+                            {{ __('messages.freelancer_manager') }}
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('fields.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    {{ __('messages.fields.title') }}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('jobs.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    {{ __('messages.jobs.title') }}
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="{{ route('articles.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-clone"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-newspaper"></i>
                         <p>
-                            {{ __('messages.articles.title') }}
+                            {{ __('messages.blogs') }}
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('articles.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-clone"></i>
+                                <p>
+                                    {{ __('messages.articles.title') }}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('categories.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    {{ __('messages.categories.title') }}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tags.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-search-plus"></i>
+                                <p>
+                                    {{ __('messages.tags.title') }}
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="{{ route('users.index') }}" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            {{ __('messages.users.title') }}
+                            {{ __('messages.user_manager') }}
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('users.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    {{ __('messages.users.title') }}
+                                </p>
+                            </a>
+                        </li>
+                        @hasrole('Super-Admin')
+                            <li class="nav-item">
+                                <a href="{{ route('roles.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-user-lock"></i>
+                                    <p>
+                                        Role
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('permissions.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-users-cog"></i>
+                                    <p>
+                                        Permissions
+                                    </p>
+                                </a>
+                            </li>
+                        @else
+                        @endhasrole
+                    </ul>
                 </li>
-                {{-- <li class="nav-item">
-            <a href="{{ route('user') }}" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Tài khoản
-              </p>
-            </a>
-          </li> --}}
-                @hasrole('Super-Admin')
-                    <li class="nav-item">
-                        <a href="{{ route('roles.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-user-lock"></i>
-                            <p>
-                                Role
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('permissions.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-users-cog"></i>
-                            <p>
-                                Permissions
-                            </p>
-                        </a>
-                    </li>
-                @else
-                @endhasrole
-                {{-- <li class="nav-item">
-                    <a href="{{ route('refresh') }}" class="nav-link">
-                        <i class="nav-icon fas fa-sync-alt"></i>
-                        <p>
-                            Refresh
-                        </p>
-                    </a>
-                </li> --}}
-                {{-- <li class="nav-item">
-                    <a href="{{ url('log-viewer') }}" target="_blank" class="nav-link">
-                        <i class="nav-icon fas fa-file-alt"></i>
-                        <p>
-                            Logs
-                        </p>
-                    </a>
-                </li> --}}
+
                 <li class="nav-item">
-                    <a href="{{ route('admin.log') }}" target="_blank" class="nav-link">
-                        <i class="nav-icon fas fa-file-alt"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            Logs
+                            {{ __('messages.setting') }}
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-file-alt"></i>
+                                <p>
+                                    Logs
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right">2</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('log-viewer') }}" target="_blank" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Logs 1
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.log') }}" target="_blank" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Logs 2
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-globe-europe"></i>
+                                <p>
+                                    {{ __('messages.language') }}
+                                    <i class="fas fa-angle-left right"></i>
+                                    <span class="badge badge-info right">2</span>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{!! route('change-language', ['en']) !!}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>English</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{!! route('change-language', ['vi']) !!}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Vietnam</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('refresh') }}" class="nav-link">
+                                <i class="nav-icon fas fa-sync-alt"></i>
+                                <p>
+                                    Refresh
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('backup.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-file-import"></i>
+                                <p>
+                                    {{ __('messages.backup') }}
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -167,31 +299,6 @@
                         </p>
                     </a>
                 </li>
-
-                {{-- <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Language
-                            <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">2</span>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{!! route('change-language', ['en']) !!}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>English</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{!! route('change-language', ['vi']) !!}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Vietnam</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
 
                 {{-- <li class="nav-item">
             <a href="#" class="nav-link">

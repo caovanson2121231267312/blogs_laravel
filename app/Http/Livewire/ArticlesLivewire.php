@@ -60,7 +60,7 @@ class ArticlesLivewire extends Component
 
         $this->data = $this->model->where($this->table . 'name', 'like', '%' . $this->name . '%')
             ->select($test)
-            ->with(["user", "category"])
+            // ->with(["user", "category"])
             ->when($this->selectedCategory != '', function ($q) {
                 return $q->where('category_id', '=', $this->selectedCategory);
             })
@@ -71,7 +71,7 @@ class ArticlesLivewire extends Component
             })
             ->join('users', $this->table . 'user_id', '=', 'users.id')
             ->join('categories', $this->table . 'category_id', '=', 'categories.id')
-            // ->with(["user", "category"])
+            ->with(["user", "category"])
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(10);
         $this->loading = false;

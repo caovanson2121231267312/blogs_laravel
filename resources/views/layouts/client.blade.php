@@ -7,24 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ asset('client/css/app.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    @vite(['resources/js/client.js'])
+    @vite('resources/css/client.css')
     @livewireStyles
 </head>
 
-<body class="sidebar-mini">
-    <div class="wrapper">
-        @include('client.layouts.header')
+<body>
 
-        @yield('body')
+    @include('client.layouts.navbar')
+    @include('client.layouts.header')
 
-        @include('client.layouts.footer')
+
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper container">
+            <div class="pcoded-content-body">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            @yield('body')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    @include('client.layouts.footer')
     @livewireScripts
-    <script preload type="text/javascript" src="{{ asset('client/js/index.js') }}"></script>
-    <script preload type="text/javascript" src="{{ asset('client/js/jquery-3.6.0.min.js') }}"></script>
+
 </body>
 
 </html>

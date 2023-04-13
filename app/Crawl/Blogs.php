@@ -9,6 +9,58 @@ use App\Models\Article;
 
 class Blogs
 {
+
+
+
+    public function bt1()
+    {
+        $url = 'https://freetuts.net/hoc-bootstrap';
+
+        $client = new Client();
+
+        // for ($i = 1; $i <= 1; $i++) {
+
+        $crawler = $client->request('GET', $url);
+        echo $url . "\n";
+        $crawler->filter('table tbody tr')->each(
+            function (Crawler $node) {
+                $slug = $node->filter('td a')->attr("href");
+
+                $crawlerBlogs = (new Client())->request('GET', $slug);
+
+                echo $slug . "\n";
+
+                $crawlerBlogs->filter('html')->each(
+                    function (Crawler $node) {
+
+                        $name = $node->filter('.content h1')->text();
+                        $description = $node->filterXPath('//meta[@name="description"]')->attr('content');
+                        $content = $node->filter('.content')->html();
+                        echo $name . "\n";
+                        try {
+                            Article::create([
+                                "name" => $name,
+                                "description" => $description,
+                                "content" => $content,
+                                "user_id" => 1,
+                                "category_id" => 1,
+                                "image" => "bootstrap.png"
+                            ]);
+
+                            echo "Tạo thành công " . $name . "\n";
+                        } catch (\Throwable $th) {
+                            echo "Article đã có" . "\n";
+                        }
+                        echo "\n";
+                    }
+                );
+            }
+        );
+        // dd($crawler);
+        // }
+        echo "Đã hoàn thành crawl dữ liệu từ " . $url . "\n";
+    }
+
     public function blogs()
     {
         $url = 'https://viblo.asia/newest?page=';

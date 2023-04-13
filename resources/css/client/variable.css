@@ -1,0 +1,10 @@
+:root {
+	--bg-header-blue: linear-gradient(to right,  #3A96FF, #67ADFE);
+	--bg-header-green: linear-gradient(to right, #37A9FA, #3FEAB2);
+	--bg-header: linear-gradient(to right, #FD5F7A, #FE4968);
+	--bg-blue: #3B96FF;
+	--bg-yellow: #FFB447;
+	--bg-danger: #FF4D6B;
+	--bg-danger-hover: #D9425B;
+	--color-login:;
+}

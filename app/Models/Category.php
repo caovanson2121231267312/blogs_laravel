@@ -14,7 +14,7 @@ class Category extends Model
         'name',
         'description',
     ];
-    
+
     public function sluggable(): array
     {
         return [

@@ -1,97 +1,163 @@
-<header>
-    <nav class="d-flex navbar navbar-collapse">
-        <div class="menu flex-30">
-            <ul class=" d-flex align-items-center justify-content-between h-100">
-                <li>
-                    <a href="">Mua nhà</a>
+<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue headerpos-fixed">
+    <div class="container">
+        <div class="m-header">
+            <a class="mobile-menu d-lg-none d-flex" id="mobile-collapse" href="#">
+                <i class="fas fa-ellipsis-v"></i>
+            </a>
+            <a href="{{ route('home') }}" class="b-brand">
+                <img src="assets/images/logo.png" alt="" class="logo">
+                <img src="assets/images/logo-icon.png" alt="" class="logo-thumb">
+            </a>
+            <a href="#" class="mob-toggler">
+                <i class="fas fa-bars f-25"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse flex-wrap">
+            <ul class="navbar-nav m-auto">
+                <li class="icon-call nav-item d-xl-inline-block d-lg-none d-lg-inline-block">
+                    <a href="#" class="pop-search">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                    <div class="search-bar">
+                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search here">
+                        <button type="button" class="btn-close" aria-label="Close">
+                        </button>
+                    </div>
                 </li>
-                <li>
-                    <a href="{{ route('search') }}">Tìm kiếm</a>
+                <li class="icon-google-it nav-item d-xl-inline-block d-lg-none d-lg-inline-block">
+                    <a href="#" class="search-google">
+                        <i class="fab fa-google-plus-g"></i>
+                    </a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a href="#" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a>
+                </li> -->
                 <li>
-                    <a href="">Khám phá</a>
-                </li>
-                <li>
-                    <a class="active" href="">Blog</a>
+                    <div>
+                        <form class="input-group input-group-w">
+                            <div class="input-group-append">
+                                <!-- <button class="btn  btn-primary btn-icon" type="button"><i class="fas fa-search"></i></button> -->
+                                <select class="form-select">
+                                    <option>Danh mục</option>
+                                    <option>123</option>
+                                    <option>1t`11231</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Tìm kiếm code...">
+                            <div class="input-group-append">
+                                <button class="btn  btn-primary btn-icon" type="button"><i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
                 </li>
             </ul>
-        </div>
-        <div class="flex-30 text-center logo-layout">
-            <a id="show_menu" href="javascript:void(0)" class="logo-f justify-content-center d-none d-block-lg">
-                <img src="{{ asset('client/images/icons/menu.png') }}" alt="" class="header-nav-menu-icon">
-            </a>
-            <a href="" class="logo-f justify-content-center">
-                <img class="logo" src="{{ asset('client/images/logo/logo.png') }}">
-            </a>
-        </div>
-        <div class="flex-30">
-            <div class="d-flex h-100 align-items-center justify-content-end">
-                <div class="d-flex">
-                    <a href="" class="like-page bell">
-                        <i class="fas fa-bell"></i>
-                    </a>
-                    <a href="" class="like-page">
-                        <i class="fas fa-heart"></i>
-                    </a>
-                </div>
-                <div class="btn-db">
-                    <a href="" class="btn-news">
-                        Đăng bài
-                    </a>
-                </div>
-                <div>
-                    <div class="d-flex">
-                        <div class="d-none-mobile1">
-                            <span class="d-block user-name">Cao Văn Sơn</span>
-                            <span class="d-block user-position">Intern</span>
-                        </div>
-                        <div>
-                            <a href="">
-                                <img class="avatar-user"
-                                    src="{{ asset('client/images/logo/meo-hai-tay-cam-dieu-thuoc-hut.jpg') }}">
-                            </a>
+            <ul class="navbar-nav ms-auto">
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                                class="icon feather icon-bell"></i><span class="badge bg-danger"><span
+                                    class="sr-only"></span></span></a>
+                        <div class="dropdown-menu dropdown-menu-end notification">
+                            <div class="noti-head">
+                                <h6 class="d-inline-block m-b-0">Notifications</h6>
+                                <div class="float-end">
+                                    <a href="#" class="m-r-10">mark as read</a>
+                                    <a href="#">clear all</a>
+                                </div>
+                            </div>
+                            <ul class="noti-body">
+                                <li class="n-title">
+                                    <p class="m-b-0">NEW</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg"
+                                            alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>John Doe</strong><span class="n-time text-muted"><i
+                                                        class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                            <p>New ticket Added</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="n-title">
+                                    <p class="m-b-0">EARLIER</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg"
+                                            alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i
+                                                        class="icon feather icon-clock m-r-10"></i>10 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-1.jpg"
+                                            alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
+                                                        class="icon feather icon-clock m-r-10"></i>12 min</span></p>
+                                            <p>currently login</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="assets/images/user/avatar-2.jpg"
+                                            alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i
+                                                        class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="noti-footer">
+                                <a href="#">show all</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<div id="dropdown-menu-right" class="dropdown-menu-right">
-    <div class="p-r w-h-100">
-        <div>
-            <a id="close_menu" href="javascript:void(0)">
-                <i class="fas fa-times"></i>
-            </a>
-            <a href="">
-                <img class="menu-logo" src="{{ asset('client/images/logo/logo.png') }}">
-            </a>
-        </div>
-        <div>
-            <ul>
-                <li>
-                    <a href="">Mua nhà</a>
                 </li>
                 <li>
-                    <a href="">Thuê nhà</a>
+                    <div class="dropdown">
+                        <a href="#" class="displayChatbox dropdown-toggle"><i
+                                class="icon feather icon-mail"></i><span class="badge bg-success"><span
+                                    class="sr-only"></span></span></a>
+                    </div>
                 </li>
                 <li>
-                    <a href="">Khám phá</a>
-                </li>
-                <li>
-                    <a href="">Blog</a>
+                    <div class="dropdown drp-user">
+                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="assets/images/user/avatar-1.jpg" class="img-radius wid-40"
+                                alt="User-Profile-Image">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end profile-notification">
+                            <div class="pro-head">
+                                <img src="assets/images/user/avatar-1.jpg" class="img-radius"
+                                    alt="User-Profile-Image">
+                                <span>John Doe</span>
+                                <a href="auth-signin.html" class="dud-logout" title="Logout">
+                                    <i class="feather icon-log-out"></i>
+                                </a>
+                            </div>
+                            <ul class="pro-body">
+                                <li><a href="user-profile.html" class="dropdown-item"><i
+                                            class="feather icon-user"></i> Profile</a></li>
+                                <li><a href="email_inbox.html" class="dropdown-item"><i
+                                            class="feather icon-mail"></i> My Messages</a></li>
+                                <li><a href="auth-signin.html" class="dropdown-item"><i
+                                            class="feather icon-lock"></i> Lock Screen</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
-        <div class="p-a btn-menu w-100">
-            <div>
-                <a class="db-btn w-100" href="">Đăng bài</a>
-            </div>
-            <div class="d-flex">
-                <a class="btn-sign_up" href="">Đăng ký</a>
-                <a class="btn-sign_in" href="">Đăng nhập</a>
-            </div>
-        </div>
     </div>
-</div>
+</header>

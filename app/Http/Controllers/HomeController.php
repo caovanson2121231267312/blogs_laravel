@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendEmailJob;
 use Carbon\Carbon;
 use App\Events\LockAccUser;
+use Illuminate\Support\Facades\Broadcast;
 
 class HomeController extends Controller
 {
@@ -53,16 +54,17 @@ class HomeController extends Controller
     public function create(Request $request)
     {
         // Article::addAllToIndex();
-        $data = [];
-        if ($request->has('search')) {
-            $data = Article::searchByQuery(['match' => ['name' => $request->search]]);
-            // dd($data);
-        }
-        // $a = User::find(9);
-        // event(new LockAccUser("hello abc cao van sơn", $a));
-        // broadcast(new LockAccUser("123 4546", $a))->toOthers();
+        // $data = [];
+        // if ($request->has('search')) {
+        // $data = Article::searchByQuery(['match' => ['name' => $request->search]]);
+        // dd($data);
+        // }
+        $a = User::find(1);
+        event(new LockAccUser("hello abc cao van sơn", $a));
+        broadcast(new LockAccUser("123 4546", $a))->toOthers();
+        // Broadcast::socket('12')->emit('message', ['text' => 'Hello, client!']);
 
-        return view("client.search.index", ["data" => $data]);
+        // return view("client.search.index", ["data" => $data]);
     }
 
     public function show($slug)
@@ -97,6 +99,8 @@ class HomeController extends Controller
         Artisan::call('view:clear');
         Artisan::call('config:cache');
         Artisan::call('config:clear');
+        Artisan::call('backup:clean');
+        // Artisan::call('debugbar:clear');
 
         return redirect()->back();
     }
